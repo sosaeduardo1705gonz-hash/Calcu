@@ -10,34 +10,55 @@
 
   <!-- Aritmética -->
   <h2>Aritmética</h2>
-  <form action="/aritmetica" method="post">
-    <input type="number" name="num1" required>
-    <select name="op">
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="*">*</option>
-      <option value="/">/</option>
-    </select>
-    <input type="number" name="num2" required>
-    <button type="submit">Calcular</button>
-  </form>
+  <input type="number" id="num1">
+  <select id="opArit">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" id="num2">
+  <button onclick="calcularAritmetica()">Calcular</button>
 
   <!-- Binaria -->
   <h2>Binaria</h2>
-  <form action="/binaria" method="post">
-    <input type="text" name="bin1" placeholder="Ej: 1010" required>
-    <select name="op">
-      <option value="AND">AND</option>
-      <option value="OR">OR</option>
-      <option value="XOR">XOR</option>
-    </select>
-    <input type="text" name="bin2" placeholder="Ej: 1100" required>
-    <button type="submit">Calcular</button>
-  </form>
+  <input type="text" id="bin1" placeholder="Ej: 1010">
+  <select id="opBin">
+    <option value="AND">AND</option>
+    <option value="OR">OR</option>
+    <option value="XOR">XOR</option>
+  </select>
+  <input type="text" id="bin2" placeholder="Ej: 1100">
+  <button onclick="calcularBinaria()">Calcular</button>
 
   <!-- Resultado -->
   <h2>Resultado</h2>
-  <p>{{ resultado }}</p>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularAritmetica() {
+      let n1 = parseFloat(document.getElementById("num1").value);
+      let n2 = parseFloat(document.getElementById("num2").value);
+      let op = document.getElementById("opArit").value;
+      let res;
+      if(op === "+") res = n1 + n2;
+      else if(op === "-") res = n1 - n2;
+      else if(op === "*") res = n1 * n2;
+      else if(op === "/") res = n1 / n2;
+      document.getElementById("resultado").innerText = res;
+    }
+
+    function calcularBinaria() {
+      let b1 = parseInt(document.getElementById("bin1").value, 2);
+      let b2 = parseInt(document.getElementById("bin2").value, 2);
+      let op = document.getElementById("opBin").value;
+      let res;
+      if(op === "AND") res = b1 & b2;
+      else if(op === "OR") res = b1 | b2;
+      else if(op === "XOR") res = b1 ^ b2;
+      document.getElementById("resultado").innerText = res.toString(2);
+    }
+  </script>
 </body>
 </html>
 
