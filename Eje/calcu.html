@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Tecmilenio</title>
+</head>
+<body>
+  <h1>Calculadora Aritmética y Binaria</h1>
+
+  <!-- Aritmética -->
+  <h2>Aritmética</h2>
+  <form action="/aritmetica" method="post">
+    <input type="number" name="num1" required>
+    <select name="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" name="num2" required>
+    <button type="submit">Calcular</button>
+  </form>
+
+  <!-- Binaria -->
+  <h2>Binaria</h2>
+  <form action="/binaria" method="post">
+    <input type="text" name="bin1" placeholder="Ej: 1010" required>
+    <select name="op">
+      <option value="AND">AND</option>
+      <option value="OR">OR</option>
+      <option value="XOR">XOR</option>
+    </select>
+    <input type="text" name="bin2" placeholder="Ej: 1100" required>
+    <button type="submit">Calcular</button>
+  </form>
+
+  <!-- Resultado -->
+  <h2>Resultado</h2>
+  <p>{{ resultado }}</p>
+</body>
+</html>
+
