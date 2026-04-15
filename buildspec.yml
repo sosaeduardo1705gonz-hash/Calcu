@@ -11,10 +11,10 @@ phases:
       - echo "Build completado"
 artifacts:
   files:
-    - index.html
+    - calcu.html
     - app.py
     - Dockerfile
-    - style.css
+    - estilos.css
     - backup.log
     - img/*
 
