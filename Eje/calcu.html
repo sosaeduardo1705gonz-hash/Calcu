@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Calculadora Aritmética y Binaria</h1>
+  <h1>Calculadora Aritmética, Binaria y Lógica</h1>
 
   <!-- Aritmética -->
   <h2>Aritmética</h2>
@@ -30,6 +30,23 @@
   </select>
   <input type="text" id="bin2" placeholder="Ej: 1100">
   <button onclick="calcularBinaria()">Calcular</button>
+
+  <!-- Lógica -->
+  <h2>Lógica</h2>
+  <select id="log1">
+    <option value="true">True</option>
+    <option value="false">False</option>
+  </select>
+  <select id="opLog">
+    <option value="AND">AND</option>
+    <option value="OR">OR</option>
+    <option value="NOT">NOT</option>
+  </select>
+  <select id="log2">
+    <option value="true">True</option>
+    <option value="false">False</option>
+  </select>
+  <button onclick="calcularLogica()">Calcular</button>
 
   <!-- Resultado -->
   <h2>Resultado</h2>
@@ -57,6 +74,17 @@
       else if(op === "OR") res = b1 | b2;
       else if(op === "XOR") res = b1 ^ b2;
       document.getElementById("resultado").innerText = res.toString(2);
+    }
+
+    function calcularLogica() {
+      let l1 = document.getElementById("log1").value === "true";
+      let l2 = document.getElementById("log2").value === "true";
+      let op = document.getElementById("opLog").value;
+      let res;
+      if(op === "AND") res = l1 && l2;
+      else if(op === "OR") res = l1 || l2;
+      else if(op === "NOT") res = !l1; // NOT solo aplica al primero
+      document.getElementById("resultado").innerText = res;
     }
   </script>
 </body>
