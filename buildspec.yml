@@ -1,20 +1,9 @@
 version: 0.2
-
 phases:
-  install:
-    commands:
-      - echo "Instalando dependencias..."
-      - pip install flask
   build:
     commands:
-      - echo "Compilando aplicación de calculadora..."
-      - echo "Build completado"
+      - echo "Build completo"
 artifacts:
   files:
-    - calcu.html
-    - app.py
-    - Dockerfile
-    - estilos.css
-    - backup.log
-    - img/*
+    - '**/*'
 
